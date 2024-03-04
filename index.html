@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduWave - Empowering Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    <link rel="icon" href="fav.png" type="image/x-icon">
+    <style>
+        /* Reset default margin and padding for the entire page */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            /* Use the new font */
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+
+        /* Style for the header/navbar */
+        header {
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .search {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 300px;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            color: #333;
+            outline: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-button {
+            background-color: #ff9933;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-button:hover {
+            background-color: #ff66cc;
+        }
+
+        .search-button {
+            margin-left: -50px;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-right: 20px;
+        }
+
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff66cc;
+        }
+
+        /* Background */
+        .background {
+            background-image: url('classroom.jpg');
+            background-size: cover;
+            background-position: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .box-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* .content {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        } */
+
+
+        .content {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            /* Add some margin between sections */
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 10px;
+                /* Adjust padding for smaller screens */
+                margin: 10px;
+                /* Adjust margin for smaller screens */
+            }
+        }
+
+
+        .text-big {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .secondhalf {
+            margin-top: 20px;
+        }
+
+        .secondhalf img {
+            max-width: 100%;
+            border: 2px solid #ff66cc;
+            border-radius: 10px;
+        }
+
+        /* Courses Section */
+        .courses {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .course {
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+
+
+        @media (max-width: 768px) {
+            .course {
+                width: 100%;
+                /* Make the cards full width on small screens */
+                margin-bottom: 20px;
+                /* Add margin between cards on small screens */
+            }
+        }
+
+
+        .course:hover {
+            transform: translateY(-5px);
+        }
+
+        .course img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .course h3 {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .course p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .course a {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #ff66cc;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .course a:hover {
+            background-color: #ff9933;
+        }
+
+        /* Footer */
+        /* footer {
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        } */
+        footer {
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+
+        footer p {
+            font-size: 16px;
+        }
+
+        footer a {
+            color: #ff66cc;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Add styles for the duration filters */
+        .course-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .course-filters select {
+            width: 150px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Add styles for the Buy button */
+        .buy-button {
+            background-color: #ff66cc;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+        }
+
+        .buy-button:hover {
+            background-color: #ff9933;
+        }
+
+        /* Define the initial state of the elements */
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        /* Define the animation when elements enter the viewport */
+        .animate-fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Contact Form Styles */
+        .contact-container {
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        /* .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        } */
+
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 10px;
+                /* Adjust padding for smaller screens */
+            }
+        }
+
+
+        .contact-form h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .form-group input[type="text"]::placeholder,
+        .form-group input[type="email"]::placeholder,
+        .form-group textarea::placeholder {
+            color: #555;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .submit-button {
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .submit-button:hover {
+            background: linear-gradient(90deg, #9b59b6, #3498db);
+        }
+
+
+
+        /* Adjust search bar styles for smaller screens */
+        @media (max-width: 768px) {
+            .search {
+                flex-direction: column;
+                align-items: flex-start;
+                display: none;
+                margin-top: 20px;
+                /* Add some space between the search bar and navigation links */
+            }
+
+            .search-input {
+                width: 100%;
+                /* Make the search input full width */
+                margin-bottom: 10px;
+                /* Add space between the input and button */
+            }
+
+            .search-button {
+                margin-left: 0;
+                /* Remove the negative margin on the button */
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.jpeg" alt="Logo">
+                <h1>EduWave</h1>
+            </div>
+
+            <!-- Update the search input and button styles -->
+            <div class="search">
+                <input type="text" placeholder="Search for courses..." class="search-input">
+                <button class="search-button"><i class="fas fa-search">Search</i></button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <section class="background" id="home">
+
+        <!-- Existing Content -->
+        <div class="box-main">
+            <div class="content">
+                <p class="text-big">Empowering Education</p>
+                <p>"Education is the passport to the future, for tomorrow belongs to those who prepare for it today." -
+                    Malcolm X</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="content" id="about">
+        <div class="box-main">
+            <h2>Why Choose EduWave?</h2>
+            <p>EduWave is committed to providing high-quality education and empowering learners for success. Here are
+                some reasons why you should choose us:</p>
+            <ul>
+                <li>Experienced Instructors: Our instructors are experts in their fields.</li>
+                <li>Flexible Learning: We offer flexible learning options to fit your schedule.</li>
+                <li>Wide Range of Courses: Explore diverse courses to enhance your skills.</li>
+                <li>Supportive Community: Join our supportive learning community.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="content" id="courses">
+        <div class="box-main">
+            <h2>Our Courses</h2>
+            <p>Discover our featured courses designed to help you achieve your educational goals:</p>
+
+            <!-- Add this HTML code above your course cards -->
+            <div class="course-filters">
+                <label for="category">Filter by Category:</label>
+                <select id="category">
+                    <option value="all">All</option>
+                    <option value="web">Web Development</option>
+                    <option value="hacking">Hacking</option>
+                    <option value="ai">Artificial Intelligence</option>
+                    <!-- Add more categories as needed -->
+                </select>
+                <label for="duration">Filter by Duration:</label>
+                <select id="duration">
+                    <option value="all">All</option>
+                    <option value="3">3 months</option>
+                    <option value="2">2 months</option>
+                    <option value="4">4 months</option>
+                    <!-- Add more durations as needed -->
+                </select>
+            </div>
+
+
+
+            <!-- Add your course cards with Buy buttons -->
+            <div class="courses">
+                <!-- Course 3: Web Development -->
+                <div class="course animate-fade-in" data-category="web" data-duration="3">
+                    <img src="web.jpeg" alt="Web Development">
+                    <h3>Web Development</h3>
+                    <p>Learn web development and create stunning websites.<br> Duration: 3 months</p>
+                    <p>Teacher: CWH</p>
+                    <p>Price: Free!</p>
+                    <a href="https://youtube.com/playlist?list=PLu0W_9lII9agiCUZYRsvtGTXdxkzPyItg&si=Elhonj3XIK2x3xIp">Learn
+                        More</a>
+                </div>
+
+                <!-- Course 4: Hacking -->
+                <div class="course animate-fade-in" data-category="hacking" data-duration="2">
+                    <img src="hacking.jpeg" alt="Hacking">
+                    <h3>Hacking</h3>
+                    <p>Explore the world of ethical hacking and cybersecurity. <br>Duration: 2 months</p>
+                    <p>Teacher: WS Cube Tech</p>
+                    <p>Price: Free!</p>
+                    <a href="https://youtube.com/playlist?list=PLjVLYmrlmjGea8U9nphmCHGK_v6p_wq-R&si=NsGymrFV9dDBNlC7">Learn
+                        More</a>
+                </div>
+
+                <!-- Course 8: Artificial Intelligence -->
+                <div class="course animate-fade-in" data-category="ai" data-duration="4">
+                    <img src="ai.jpeg" alt="Artificial Intelligence">
+                    <h3>Artificial Intelligence</h3>
+                    <p>Delve into the world of AI and machine learning algorithms. <br>Duration: 4 months</p>
+                    <p>Teacher: CWH</p>
+                    <p>Price: Free!</p>
+                    <a href="https://youtube.com/playlist?list=PLu0W_9lII9aiS4rUVp2jXwIvCruo27sG6&si=GUzlwvLAcb21NWCJ">Learn
+                        More</a>
+                </div>
+            </div>
+    </section>
+
+
+
+    <section class="contact-container" id="contact">
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contact-form" action="#" method="post">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+
+    <footer>
+        <p>&copy; 2023 EduWave. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </p>
+    </footer>
+
+    <script>
+        // JavaScript for search functionality
+        const searchInput = document.querySelector('input[type="text"]');
+        const courseCards = document.querySelectorAll('.course');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+
+            courseCards.forEach((card) => {
+                const courseTitle = card.querySelector('h3').innerText.toLowerCase();
+                if (courseTitle.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+
+        const categoryFilter = document.getElementById('category');
+        const durationFilter = document.getElementById('duration');
+
+        categoryFilter.addEventListener('change', filterCourses);
+        durationFilter.addEventListener('change', filterCourses);
+
+        function filterCourses() {
+            const selectedCategory = categoryFilter.value;
+            const selectedDuration = durationFilter.value;
+
+            courseCards.forEach((card) => {
+                const category = card.getAttribute('data-category');
+                const duration = parseInt(card.getAttribute('data-duration'));
+
+                const categoryMatch = selectedCategory === 'all' || selectedCategory === category;
+                const durationMatch = selectedDuration === 'all' || parseInt(selectedDuration) === duration;
+
+                if (categoryMatch && durationMatch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+
+
+        // Add event listeners to Buy buttons
+        const buyButtons = document.querySelectorAll('.buy-button');
+        buyButtons.forEach((button) => {
+            button.addEventListener('click', (event) => {
+                const courseName = event.target.getAttribute('data-course');
+                // Implement your buy functionality here, e.g., redirect to a payment page
+                alert(`You clicked Buy for the course: ${courseName}`);
+            });
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const elements = document.querySelectorAll('.animate-fade-in');
+
+            function checkInView() {
+                elements.forEach((element) => {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top >= 0 && rect.top <= window.innerHeight) {
+                        element.classList.add('active');
+                    } else {
+                        element.classList.remove('active');
+                    }
+                });
+            }
+
+            // Initially check for elements in view
+            checkInView();
+
+            // Check for elements in view when scrolling
+            window.addEventListener('scroll', checkInView);
+        });
+
+
+
+
+        let slideIndex = 1;
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("slide");
+
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        function plusSlides(n) {
+            showSlides((slideIndex += n));
+        }
+
+        showSlides(slideIndex);
+
+
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contact-form');
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+
+                // Check if form fields are empty
+                if (!name || !email || !subject || !message) {
+                    alert('Please fill out all fields');
+                    return;
+                }
+
+                // Display an alert with the form data (you can replace this with your server-side logic)
+                const formData = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+                alert('Form submitted with the following data:\n\n' + formData);
+
+                // Reset the form
+                contactForm.reset();
+            });
+        });
+
+
+        // Smooth scroll function
+        function smoothScroll(target, duration) {
+            const targetElement = document.querySelector(target);
+            const targetPosition = targetElement.getBoundingClientRect().top;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const run = ease(timeElapsed, startPosition, distance, duration);
+                window.scrollTo(0, run);
+                if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+
+            function ease(t, b, c, d) {
+                // Easing function (you can change this for different easing effects)
+                t /= d;
+                return c * t * t + b;
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        // // Add smooth scroll event listeners to your navigation links or buttons
+        // const navLinks = document.querySelectorAll('.nav-links a');
+        // navLinks.forEach(link => {
+        //     link.addEventListener('click', (e) => {
+        //         e.preventDefault();
+        //         const targetId = link.getAttribute('href');
+        //         smoothScroll(targetId, 1000); // You can adjust the duration (in milliseconds)
+        //     });
+        // });
+
+
+
+        // JavaScript for toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+    </script>
+</body>
+
+</html>
